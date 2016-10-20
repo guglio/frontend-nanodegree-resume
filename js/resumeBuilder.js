@@ -26,6 +26,15 @@ var bio = {
           "welcomeMsg" : "Welcome!",
           "skills" : ["HTML5", "CSS3", "JavaScript", "Web Developer"]
  };
+
+var work = {};
+
+work.jobPosition = "Head of Digital Media";
+work.employer = "C.I.A.M. SRL";
+work.years = 8;
+work.city = "Boves (CN)";
+
+
 $("#header").append(HTMLheaderName.replace("%data%",bio.name));
 $("#header").append(HTMLheaderRole.replace("%data%",bio.role));
 $("#header").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
@@ -36,3 +45,9 @@ $("#header").append(HTMLlocation.replace("%data%",bio.contacts.location));
 $("#header").append(HTMLbioPic.replace("%data%",bio.pictureURL));
 $("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMsg));
 $("#header").append(HTMLskillsStart + HTMLskills.replace("%data%",bio.skills));
+
+$("#workExperience").append(HTMLworkStart);
+$("#workExperience").append(HTMLworkTitle.replace("%data%",work.jobPosition));
+$("#workExperience").append(HTMLworkEmployer.replace("%data%",work.employer));
+$("#workExperience").append(HTMLworkDates.replace("%data%",work.years));
+$("#workExperience").append(HTMLworkLocation.replace("%data%",work.city));
