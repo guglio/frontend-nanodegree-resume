@@ -34,6 +34,11 @@ work.employer = "C.I.A.M. SRL";
 work.years = 8;
 work.city = "Boves (CN)";
 
+var education = {};
+
+education["school"] = "Politecnico di Torino";
+education["years"] = 4;
+education["city"] = "Torino (TO)";
 
 $("#header").append(HTMLheaderName.replace("%data%",bio.name));
 $("#header").append(HTMLheaderRole.replace("%data%",bio.role));
@@ -51,3 +56,8 @@ $("#workExperience").append(HTMLworkTitle.replace("%data%",work["jobPosition"]))
 $("#workExperience").append(HTMLworkEmployer.replace("%data%",work["employer"]));
 $("#workExperience").append(HTMLworkDates.replace("%data%",work["years"]));
 $("#workExperience").append(HTMLworkLocation.replace("%data%",work["city"]));
+
+$("#education").append(HTMLschoolStart);
+$("#education").append(HTMLschoolName.replace("%data%",education.school));
+$("#education").append(HTMLschoolDates.replace("%data%",education.years));
+$("#education").append(HTMLschoolLocation.replace("%data%",education.city));
