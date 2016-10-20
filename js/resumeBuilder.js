@@ -47,7 +47,7 @@ $("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMsg));
 $("#header").append(HTMLskillsStart + HTMLskills.replace("%data%",bio.skills));
 
 $("#workExperience").append(HTMLworkStart);
-$("#workExperience").append(HTMLworkTitle.replace("%data%",work.jobPosition));
-$("#workExperience").append(HTMLworkEmployer.replace("%data%",work.employer));
-$("#workExperience").append(HTMLworkDates.replace("%data%",work.years));
-$("#workExperience").append(HTMLworkLocation.replace("%data%",work.city));
+$("#workExperience").append(HTMLworkTitle.replace("%data%",work["jobPosition"]));
+$("#workExperience").append(HTMLworkEmployer.replace("%data%",work["employer"]));
+$("#workExperience").append(HTMLworkDates.replace("%data%",work["years"]));
+$("#workExperience").append(HTMLworkLocation.replace("%data%",work["city"]));
