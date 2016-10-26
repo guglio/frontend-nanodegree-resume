@@ -206,3 +206,20 @@ bio.display = function(){
 
 };
 bio.display();
+
+work.display = function(){
+  $('#workExperience').append(HTMLworkStart);
+  for(var i = 0; i < work.jobs.length; i++){
+    var currentJob = work.jobs[i];
+    var formattedEmployer = HTMLworkEmployer.replace("%data%",currentJob.employer).replace("#",currentJob.url);
+    var formattedTitle = HTMLworkTitle.replace("%data%",currentJob.title);
+    var formattedLocation = HTMLworkLocation.replace("%data%",currentJob.location);
+    var formattedDates = HTMLworkDates.replace("%data%",currentJob.dates);
+    var formattedDescription = HTMLworkDescription.replace("%data%",currentJob.description);
+
+    $(".work-entry:last").append(formattedEmployer + formattedTitle);
+    $(".work-entry:last").append(formattedLocation);
+    $(".work-entry:last").append(formattedDates);
+    $(".work-entry:last").append(formattedDescription);
+  }
+};
