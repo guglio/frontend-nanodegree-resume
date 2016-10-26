@@ -223,3 +223,5 @@ work.display = function(){
     $(".work-entry:last").append(formattedDescription);
   }
 };
+
+work.display();
