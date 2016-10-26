@@ -113,7 +113,7 @@ var work = {
       "title" : "Senior Web Developer",
       "location" : "Boves (CN) - Italy",
       "dates" : "2008 - 2013",
-      "description" : "",
+      "description" : "I had to maintain the pre-existent IT infrastructure. I started to introduce some new features to improve the current working process. My first improve was a NAS, for backup and sharingsolution. I crafted, with the accounting Office, some custom Excel sheets to hold all the bank records, to speed up all the bank reports, but those are some examples of what I have done inside the company. Next, I had to remodel and redesign the company website. I started crafting handwritten websites for the other company under the KARIM SRO company group, with the help of the Design Office.",
       "url" : "http://www.karimsro.it"
     },
     {
@@ -121,14 +121,14 @@ var work = {
       "title" : "Chief Digital Officer",
       "location" : "Boves (CN) - Italy",
       "dates" : "2014 - Present",
-      "description" : "",
+      "description" : "I'm working side to side with the Design Office, to create beautiful and modern websites for our clients.",
       "url" : "http://www.megwise.it"
     },{
       "employer" : "C.I.A.M. SRL",
       "title" : "Head of Web Development",
       "location" : "Boves (CN) - Italy",
       "dates" : "2013 - Present",
-      "description" : "",
+      "description" : "My main focus is to develop, with the new technologies available, every possible tool to create an avanguard environment working place. I created a custom iOS application for the MADE Expo exhibition, in with you could collect clients infos and show the company catalogues. I also created the company website, alongside the Design Office.",
       "url" : "http://www.ciamcostruzioni.it"
     }
   ]
@@ -140,29 +140,51 @@ var projects = {
       "title" : "Access Control System",
       "dates" : "September 2015 - March 2016",
       "description" : "Arduino based system to store and control access to workplace with NFC badges. All data is stored locally, as backup, and into a remote server. All data is accessible through a webpage that show the ID of the card and the relative timestamp.",
-      "images" : [
-        {
-          "url" : "images/ACS/01.jpg",
-          "alt" : "01 balb balb"
-        },
-        {
-          "url" : "images/ACS/02.jpg",
-          "alt" : "02 balb asdasffg"
-        }
-      ],
       "url" : "https://youtu.be/9fkGFCoe40E"
     },
     {
       "title" : "MeGwise website",
       "dates" : "August 2015",
       "description" : "Website for the company I'm working for. I had to develop all the structures of the website, to create a responsive design to makes it available to every screen and platforms. I used different techniques from javascript to css media queries.",
-      "url" : "http://www.megwise.it"
+      "url" : "http://www.megwise.it",
+      "images" : [
+        {
+          "url" : "images/megwise/megwise_01.jpg",
+          "alt" : "Home page of MeGwise website"
+        },
+        {
+          "url" : "images/megwise/megwise_02.jpg",
+          "alt" : "Another view of the website, with some data filtered from the menu"
+        }
+      ]
     },
     {
       "title" : "Victor Salvi Museum",
       "dates" : "March 2015 - Present",
       "description" : "Institutional website of the Victor Salvi Museum. I've created all the structure of the website as the client wanted. I've made two versions of the website, one for desktop and tablets, and one specifically for mobile devices. I had to create a simple and easy way to update all events and press media contents. To achive this goal, I used jQuery and a Json file(s) to populatd the relative webpages, so I only have to add an entry to the Json to insert new data. On the other hand, the mobile version, is based on jQuery mobile framework.",
-      "url" : "http://www.victorsalvimuseum.org"
+      "url" : "http://www.victorsalvimuseum.org",
+      "images" : [
+        {
+          "url" : "images/salvi/salvi-1.jpg",
+          "alt" : "Harp and Victor Salvi Museum Logo"
+        },
+        {
+          "url" : "images/salvi/salvi-2.jpg",
+          "alt" : "Screenshot of a partial of the website main page"
+        },
+        {
+          "url" : "images/salvi/salvi-3.jpg",
+          "alt" : "Collection of slides of the main page carousel"
+        },
+        {
+          "url" : "images/salvi/salvi-4.jpg",
+          "alt" : "Victor Salvi Museum Pinterest page and famous photo with Prince Charles"
+        },
+        {
+          "url" : "images/salvi/salvi-5.jpg",
+          "alt" : "Glympse of the Harps Collection page"
+        }
+      ],
     }
   ]
 }
