@@ -184,7 +184,7 @@ var projects = {
           "url" : "images/salvi/salvi-5.jpg",
           "alt" : "Glympse of the Harps Collection page"
         }
-      ]
+      ],
     }
   ]
 };
@@ -209,7 +209,7 @@ bio.display = function(){
   var formattedWebsite = HTMLwebsite.replace("%data%",bio.contacts.website);
 
   var idString = ["#topContacts", "#footerContacts"];
-  for ( i = 0, id; i < idString.length; i++){
+  for ( i = 0; i < idString.length; i++){
     id = idString[i];
     $(id).append(formattedMobile);
     $(id).append(formattedEmail);
@@ -260,14 +260,14 @@ projects.display = function(){
     $(".project-entry:last").append(formattedDates);
     $(".project-entry:last").append(formattedDescription);
 
-    if(currentProject.images !== null)
+    if(currentProject.images)
     {
       var formattedImgs = "";
-      for(var j = 0; j < currentProject.images.length;j++){
+      for( j = 0; j < currentProject.images.length;j++){
         var currentImg = currentProject.images[j];
         formattedImgs += HTMLprojectImage.replace("%data%",currentImg.url);
         //check if there is a specific name for the picture
-        if(currentImg.alt !== null)
+        if(currentImg.alt)
           formattedImgs = formattedImgs.replace("%alt%",currentImg.alt);
         else
           formattedImgs = formattedImgs.replace("%alt%",currentProject.title + " image " + j);
