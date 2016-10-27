@@ -1,52 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-//  BIO
-//  name : string
-//        role : string
-//        contacts : an object with
-//              mobile: string
-//              email: string
-//              github: string
-//              twitter: string (optional)
-//              location: string
-//        welcomeMessage: string
-//        skills: array of strings
-//        biopic: url
-// display: function
-//
-// EDUCATION
-// schools: array of objects with
-//            name: string
-//            location: string
-//            degree: string
-//            majors: array of strings
-//            dates: string (works with a hyphen between them)
-//            url: string
-// onlineCourses: array of objects with
-//            title: string
-//            school: string
-//            dates: string (works with a hyphen between them)
-//            url: string
-// display: function
-//
-// WORK
-// jobs: array of objects with
-//            employer: string
-//            title: string
-//            location: string
-//            dates: string (Can be 'in progress')
-//            description: string
-// display: function
-//
-// PROJECTS
-// projects: array of objects with
-//             title: string
-//             dates: string (works with a hyphen between them)
-//             description: string
-//             images: array with string urls
-// display: function
-
 var bio = {
           "name" : "Guglielmo Turco",
           "role" : "Chief Digital Officer",
@@ -69,14 +20,14 @@ var bio = {
       "name" : "Liceo Scientifico G. Peano",
       "location" : "Cuneo (CN) - Italy",
       "degree" : "High School",
-      "major" : ["Mathematics", "Phisyc", "Latin", "Italian literature", "History", "Geography", "Chemistry"],
+      "majors" : ["Mathematics", "Phisyc", "Latin", "Italian literature", "History", "Geography", "Chemistry"],
       "dates" : "1998 - 2004",
       "url" : "http://liceocuneo.it"
      },{
       "name" : "Politecnico di Torino",
       "location" : "Torino (TO) - Italy",
       "degree" : "Informatic Engineering",
-      "major" : ["Programming Language", "Informatic", "Mathematics", "Phisyc","Chemistry"],
+      "majors" : ["Programming Language", "Informatic", "Mathematics", "Phisyc","Chemistry"],
       "dates" : "2004 - 2008",
       "url" : "http://www.polito.it"
      }
@@ -135,56 +86,27 @@ var work = {
 };
 
 var projects = {
-  "project" : [
+  "projects" : [
     {
       "title" : "Access Control System",
       "dates" : "September 2015 - March 2016",
       "description" : "Arduino based system to store and control access to workplace with NFC badges. All data is stored locally, as backup, and into a remote server. All data is accessible through a webpage that show the ID of the card and the relative timestamp.",
-      "url" : "https://youtu.be/9fkGFCoe40E"
+      "url" : "https://youtu.be/9fkGFCoe40E",
+      "images" : []
     },
     {
       "title" : "MeGwise website",
       "dates" : "August 2015",
       "description" : "Website for the company I'm working for. I had to develop all the structures of the website, to create a responsive design to makes it available to every screen and platforms. I used different techniques from javascript to css media queries.",
       "url" : "http://www.megwise.it",
-      "images" : [
-        {
-          "url" : "images/megwise/megwise_01.jpg",
-          "alt" : "Home page of MeGwise website"
-        },
-        {
-          "url" : "images/megwise/megwise_02.jpg",
-          "alt" : "Another view of the website, with some data filtered from the menu"
-        }
-      ]
+      "images" : ["images/megwise/megwise_01.jpg","images/megwise/megwise_02.jpg"]
     },
     {
       "title" : "Victor Salvi Museum",
       "dates" : "March 2015 - Present",
       "description" : "Institutional website of the Victor Salvi Museum. I've created all the structure of the website as the client wanted. I've made two versions of the website, one for desktop and tablets, and one specifically for mobile devices. I had to create a simple and easy way to update all events and press media contents. To achive this goal, I used jQuery and a Json file(s) to populatd the relative webpages, so I only have to add an entry to the Json to insert new data. On the other hand, the mobile version, is based on jQuery mobile framework.",
       "url" : "http://www.victorsalvimuseum.org",
-      "images" : [
-        {
-          "url" : "images/salvi/salvi-1.jpg",
-          "alt" : "Harp and Victor Salvi Museum Logo"
-        },
-        {
-          "url" : "images/salvi/salvi-2.jpg",
-          "alt" : "Screenshot of a partial of the website main page"
-        },
-        {
-          "url" : "images/salvi/salvi-3.jpg",
-          "alt" : "Collection of slides of the main page carousel"
-        },
-        {
-          "url" : "images/salvi/salvi-4.jpg",
-          "alt" : "Victor Salvi Museum Pinterest page and famous photo with Prince Charles"
-        },
-        {
-          "url" : "images/salvi/salvi-5.jpg",
-          "alt" : "Glympse of the Harps Collection page"
-        }
-      ],
+      "images" : ["images/salvi/salvi-1.jpg", "images/salvi/salvi-2.jpg", "images/salvi/salvi-3.jpg", "images/salvi/salvi-4.jpg", "images/salvi/salvi-5.jpg"]
     }
   ]
 };
@@ -196,10 +118,7 @@ bio.display = function(){
   var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
   var formattedPic = HTMLbioPic.replace("%data%",bio.biopic).replace("%alt%",bio.name);
 
-  $("#header").prepend(formattedPic);
-  $("#header").prepend(formattedMessage);
-  $("#header").prepend(formattedRole);
-  $("#header").prepend(formattedName);
+  $("#header").prepend(formattedName,formattedRole,formattedMessage,formattedPic);
 
   var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
   var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
@@ -211,12 +130,7 @@ bio.display = function(){
   var idString = ["#topContacts", "#footerContacts"];
   for ( i = 0; i < idString.length; i++){
     id = idString[i];
-    $(id).append(formattedMobile);
-    $(id).append(formattedEmail);
-    $(id).append(formattedTwitter);
-    $(id).append(formattedGithub);
-    $(id).append(formattedWebsite);
-    $(id).append(formattedLocation);
+    $(id).append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedWebsite, formattedLocation);
   }
 
   $('#header').append(HTMLskillsStart);
@@ -239,10 +153,10 @@ work.display = function(){
     var formattedDates = HTMLworkDates.replace("%data%",currentJob.dates);
     var formattedDescription = HTMLworkDescription.replace("%data%",currentJob.description);
 
-    $(".work-entry:last").append(formattedEmployer + formattedTitle);
-    $(".work-entry:last").append(formattedLocation);
-    $(".work-entry:last").append(formattedDates);
-    $(".work-entry:last").append(formattedDescription);
+    $(".work-entry:last").append(formattedEmployer + formattedTitle, formattedLocation, formattedDates, formattedDescription);
+    // $(".work-entry:last").append(formattedLocation);
+    // $(".work-entry:last").append(formattedDates);
+    // $(".work-entry:last").append(formattedDescription);
   }
 };
 
@@ -250,28 +164,23 @@ work.display();
 
 projects.display = function(){
   $('#projects').append(HTMLprojectStart);
-  for( i = 0; i < projects.project.length; i++){
-    var currentProject = projects.project[i];
+  for( i = 0; i < projects.projects.length; i++){
+    var currentProject = projects.projects[i];
     var formattedTitle = HTMLprojectTitle.replace("%data%",currentProject.title).replace("#",currentProject.url);
     var formattedDates = HTMLprojectDates.replace("%data%",currentProject.dates);
     var formattedDescription = HTMLprojectDescription.replace("%data%",currentProject.description);
 
-    $(".project-entry:last").append(formattedTitle);
-    $(".project-entry:last").append(formattedDates);
-    $(".project-entry:last").append(formattedDescription);
+    $(".project-entry:last").append(formattedTitle,formattedDates,formattedDescription);
+    // $(".project-entry:last").append(formattedDates);
+    // $(".project-entry:last").append(formattedDescription);
 
     if(currentProject.images)
     {
       var formattedImgs = "";
       for( j = 0; j < currentProject.images.length;j++){
-        var currentImg = currentProject.images[j];
-        formattedImgs += HTMLprojectImage.replace("%data%",currentImg.url);
-        //check if there is a specific name for the picture
-        if(currentImg.alt)
-          formattedImgs = formattedImgs.replace("%alt%",currentImg.alt);
-        else
-          formattedImgs = formattedImgs.replace("%alt%",currentProject.title + " image " + j);
-
+        formattedImgs += HTMLprojectImage.replace("%data%",currentProject.images[j]);
+        //Add the alt value of the image
+        formattedImgs = formattedImgs.replace("%alt%",currentProject.title + " image " + j);
       }
       $(".project-entry:last").append(formattedImgs);
     }
@@ -291,10 +200,10 @@ education.display = function(){
     var formattedMajor = HTMLschoolMajor.replace("%data%",currentSchool.major);
     var formattedDates = HTMLschoolDates.replace("%data%",currentSchool.dates);
 
-    $(".education-entry:last").append(formattedName + formattedDegree);
-    $(".education-entry:last").append(formattedDates);
-    $(".education-entry:last").append(formattedLocation);
-    $(".education-entry:last").append(formattedMajor);
+    $(".education-entry:last").append(formattedName + formattedDegree, formattedDates, formattedLocation, formattedMajor);
+    // $(".education-entry:last").append(formattedDates);
+    // $(".education-entry:last").append(formattedLocation);
+    // $(".education-entry:last").append(formattedMajor);
   }
   if(education.onlineCourses.length > 0){
     $("#education").append(HTMLonlineClasses);
@@ -306,9 +215,9 @@ education.display = function(){
       var formattedDatesSchool = HTMLonlineDates.replace("%data%",currentOnline.dates);
       var formattedUrl = HTMLonlineURL.replace("%data%",currentOnline.url);
 
-      $(".education-entry:last").append(formattedTitle + formatterSchool);
-      $(".education-entry:last").append(formattedDatesSchool);
-      $(".education-entry:last").append(formattedUrl);
+      $(".education-entry:last").append(formattedTitle + formatterSchool, formattedDatesSchool, formattedUrl);
+      // $(".education-entry:last").append(formattedDatesSchool);
+      // $(".education-entry:last").append(formattedUrl);
     }
   }
 };
