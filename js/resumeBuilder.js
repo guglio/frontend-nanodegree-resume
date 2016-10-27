@@ -184,10 +184,10 @@ var projects = {
           "url" : "images/salvi/salvi-5.jpg",
           "alt" : "Glympse of the Harps Collection page"
         }
-      ],
+      ]
     }
   ]
-}
+};
 
 
 bio.display = function(){
@@ -209,7 +209,7 @@ bio.display = function(){
   var formattedWebsite = HTMLwebsite.replace("%data%",bio.contacts.website);
 
   var idString = ["#topContacts", "#footerContacts"];
-  for (var i = 0, id; i < idString.length; i++){
+  for ( i = 0, id; i < idString.length; i++){
     id = idString[i];
     $(id).append(formattedMobile);
     $(id).append(formattedEmail);
@@ -221,7 +221,7 @@ bio.display = function(){
 
   $('#header').append(HTMLskillsStart);
 
-  for (var i = 0, id; i < bio.skills.length; i++){
+  for ( i = 0, id; i < bio.skills.length; i++){
     var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
     $('#skills').append(formattedSkill);
   }
@@ -231,7 +231,7 @@ bio.display();
 
 work.display = function(){
   $('#workExperience').append(HTMLworkStart);
-  for(var i = 0; i < work.jobs.length; i++){
+  for( i = 0; i < work.jobs.length; i++){
     var currentJob = work.jobs[i];
     var formattedEmployer = HTMLworkEmployer.replace("%data%",currentJob.employer).replace("#",currentJob.url);
     var formattedTitle = HTMLworkTitle.replace("%data%",currentJob.title);
@@ -250,7 +250,7 @@ work.display();
 
 projects.display = function(){
   $('#projects').append(HTMLprojectStart);
-  for(var i = 0; i < projects.project.length; i++){
+  for( i = 0; i < projects.project.length; i++){
     var currentProject = projects.project[i];
     var formattedTitle = HTMLprojectTitle.replace("%data%",currentProject.title).replace("#",currentProject.url);
     var formattedDates = HTMLprojectDates.replace("%data%",currentProject.dates);
@@ -260,14 +260,14 @@ projects.display = function(){
     $(".project-entry:last").append(formattedDates);
     $(".project-entry:last").append(formattedDescription);
 
-    if(currentProject.images != null)
+    if(currentProject.images !== null)
     {
       var formattedImgs = "";
       for(var j = 0; j < currentProject.images.length;j++){
         var currentImg = currentProject.images[j];
         formattedImgs += HTMLprojectImage.replace("%data%",currentImg.url);
         //check if there is a specific name for the picture
-        if(currentImg.alt != null)
+        if(currentImg.alt !== null)
           formattedImgs = formattedImgs.replace("%alt%",currentImg.alt);
         else
           formattedImgs = formattedImgs.replace("%alt%",currentProject.title + " image " + j);
@@ -283,7 +283,7 @@ projects.display();
 
 education.display = function(){
   $('#education').append(HTMLschoolStart);
-  for(var i = 0; i < education.schools.length; i++){
+  for( i = 0; i < education.schools.length; i++){
     var currentSchool = education.schools[i];
     var formattedName = HTMLschoolName.replace("%data%",currentSchool.name).replace("#",currentSchool.url);
     var formattedLocation = HTMLschoolLocation.replace("%data%",currentSchool.location);
@@ -299,15 +299,15 @@ education.display = function(){
   if(education.onlineCourses.length > 0){
     $("#education").append(HTMLonlineClasses);
     $('#education').append(HTMLschoolStart);
-    for(var i = 0; i < education.onlineCourses.length; i++){
+    for( i = 0; i < education.onlineCourses.length; i++){
       var currentOnline = education.onlineCourses[i];
       var formattedTitle = HTMLonlineTitle.replace("%data%",currentOnline.title).replace("#",currentOnline.url);
       var formatterSchool = HTMLonlineSchool.replace("%data%",currentOnline.school);
-      var formattedDates = HTMLonlineDates.replace("%data%",currentOnline.dates);
+      var formattedDatesSchool = HTMLonlineDates.replace("%data%",currentOnline.dates);
       var formattedUrl = HTMLonlineURL.replace("%data%",currentOnline.url);
 
       $(".education-entry:last").append(formattedTitle + formatterSchool);
-      $(".education-entry:last").append(formattedDates);
+      $(".education-entry:last").append(formattedDatesSchool);
       $(".education-entry:last").append(formattedUrl);
     }
   }
